@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import { connect } from "react-redux";
+
+import { getMakeTweets, getYTweets, getNewsTweets } from "../state/tweetAction";
 import img from "../../build/assets/tweet.jpg";
 
 const Index = styled.div`
@@ -31,6 +33,12 @@ const Index = styled.div`
     opacity: 0;
   }
 
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   @media (max-width: 600px) {
     h1 {
       font-size: 5rem;
@@ -40,6 +48,9 @@ const Index = styled.div`
 class Welcome extends React.Component {
 
   componentDidMount() {
+    this.props.dispatch(getMakeTweets());
+    this.props.dispatch(getYTweets());
+    this.props.dispatch(getNewsTweets());
     document.querySelector("ul").classList.remove("show");
   }
 

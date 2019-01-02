@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100vw;
   text-align: center;
 `
 
@@ -11,7 +12,9 @@ export const Heading = styled.h1`
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: ${props => `repeat(auto-fit, minmax(${Math.floor(1100/+localStorage.getItem("column"))}px, 1fr))`};
-  grid-gap:20px;
+  align-items: center;
+  grid-gap:3rem;
+  padding: 2rem;
   transition: .2s ease-in;
 `
 

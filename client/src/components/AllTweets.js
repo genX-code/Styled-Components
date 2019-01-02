@@ -1,7 +1,7 @@
 import React from 'react';
 import Tweet from "./Tweet"
 import { connect } from "react-redux";
-import { TweetContainer, Container, Wrapper } from "./Stylesheets"
+import { TweetContainer, Container, Wrapper, Heading } from "./Stylesheets"
 
 
 class AllTweets extends React.Component {
@@ -17,7 +17,7 @@ class AllTweets extends React.Component {
     return (
       <Container>
         <TweetContainer>
-          <h1>Tweets Dashboard</h1>
+          <Heading>Tweets Dashboard</Heading>
             <Wrapper>
               {this.props.tweets.map((tweet, i) => <Tweet tweet={tweet} key={i} />)}
             </Wrapper>
