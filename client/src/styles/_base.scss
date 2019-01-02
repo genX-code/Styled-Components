@@ -1,0 +1,48 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  min-width: 50rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.fa-dove {
+  transition: .2s ease-in;
+}
+
+.fa-dove:hover { 
+  transform: scale(1.2);
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.fa-home:hover {
+  color: orange;
+}
+
+// progress bar
+
+#nprogress .bar {
+  height: .7rem;
+}

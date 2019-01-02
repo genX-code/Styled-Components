@@ -1,0 +1,162 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  max-width: 120rem;
+  min-width: 50rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif; }
+
+.tweet-dashboard {
+  font-size: 4rem; }
+
+.tweet-dashboard h1 {
+  text-align: center;
+  margin: 6rem 0;
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2); }
+
+.tweet-icon {
+  letter-spacing: 1rem; }
+
+.tweet-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  position: relative; }
+
+.tweet-card {
+  display: grid;
+  height: 15rem;
+  background: linear-gradient(135deg, #eeeeee 0%, #eeeeee 100%);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  align-content: center;
+  position: relative;
+  transition: .1s ease-in; }
+
+.tweet-card:hover {
+  transform: scale(1.05); }
+
+.tweet-card-date {
+  position: absolute;
+  top: -.1rem;
+  right: -.3rem;
+  padding: 1rem;
+  background: #61c419;
+  box-shadow: 1px 1px 2px rgba(50, 50, 50, 0.5);
+  font-size: 1.2rem;
+  color: #fff; }
+
+.tweet-card-content {
+  font-size: 1.6rem; }
+
+.tweet-card-link {
+  text-decoration: none;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #61c419; }
+
+.tweet-card-retweet {
+  position: absolute;
+  font-size: 1.2rem;
+  top: 1rem;
+  left: 2rem; }
+
+.header {
+  position: relative;
+  background: linear-gradient(135deg, #b4e391 0%, #61c419 50%, #b4e391 100%);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin-bottom: 6rem;
+  font-size: 1.8rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  height: 3rem; }
+
+@media screen and (max-width: 500px) {
+  .header h2 {
+    font-size: 2rem; } }
+
+.edit {
+  position: absolute;
+  top: 50%;
+  right: 1%;
+  transform: translateY(-50%); }
+  .edit button {
+    font-size: 1.2rem;
+    padding: 1rem;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 500rem;
+    transition: .1s ease-in;
+    color: #61c419; }
+  .edit button:hover {
+    cursor: pointer;
+    margin-top: -.2rem;
+    box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.3); }
+  .edit button:active {
+    margin-top: 0;
+    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.3); }
+  .edit button:focus {
+    outline: none; }
+
+.edit-form {
+  background: linear-gradient(to bottom, #d2ff52 0%, #91e842 100%);
+  position: relative;
+  text-shadow: 1px 1px 0 rgba(97, 196, 25, 0.4);
+  padding: 3rem;
+  width: 30rem;
+  text-align: center; }
+
+.edit-form h3 {
+  font-size: 3rem; }
+
+.edit-form label, .edit-form input {
+  display: block;
+  margin: .5rem 0;
+  font-size: 2rem; }
+
+input.edit-form-count {
+  position: absolute;
+  width: 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 5rem;
+  border: none;
+  border: 1px solid #61c419;
+  text-align: center; }
+
+.edit-form button {
+  margin-top: 5rem;
+  font-size: 1.2rem;
+  padding: .8rem 1.5em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 3rem;
+  background: linear-gradient(to bottom, #d2ff52 0%, #91e842 100%); }
+
+.edit-form button:hover {
+  box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.3); }
+
+.edit-form button:active {
+  box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.3); }
+
+.edit-form button:focus {
+  outline: none; }
+
+div.footer {
+  background: linear-gradient(135deg, #b4e391 0%, #61c419 50%, #b4e391 100%);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin-top: 6rem;
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-align: center; }
+
