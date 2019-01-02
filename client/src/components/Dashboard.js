@@ -15,15 +15,15 @@ class Dashboard extends React.Component {
     super(props);
   }
 
-  getComponent = withRouter(({history, path, text }) => {
+  getComponent = () => {
     let component;
-    console.log(props)
+    
     switch (this.props.match.url){
         case '/make' :
-          return component = <MakeSchool tweets={[...props.makeTweets]} />;
+          return component = <MakeSchool />;
 
         case '/ycomb' :
-          return component = <YComb tweets={[...this.props.makeTweets]}/>;
+          return component = <YComb />;
 
         case '/news' :
           return component = <NewsY />;
@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
         default:
           return component = <AllTweets tweets={[...this.props.yTweets, ...this.props.newsTweets, ...this.props.makeTweets]} />;
     }
-})
+}
 
 componentDidMount() {
     this.props.dispatch(getMakeTweets());
