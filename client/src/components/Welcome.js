@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import { connect } from "react-redux";
+import Header from "./Header";
 
-import { getMakeTweets, getYTweets, getNewsTweets } from "../state/tweetAction";
+import { getMakeTweets, getYTweets, getNewsTweets, getMake, getY, getNews } from "../state/tweetAction";
 import img from "../../build/assets/tweet.jpg";
 
 const Index = styled.div`
@@ -26,7 +27,8 @@ const Index = styled.div`
     font-size: 8rem;
     color:#fff;
     transition: .2s ease-in;
-    opacity: 1
+    opacity: 1;
+    text-shadow: 2px 10px 5px rgba(0,0,0,.5);
   }
 
   .hide {
@@ -56,9 +58,12 @@ class Welcome extends React.Component {
 
   render() {
     return (
-      <Index>
-        <h1>FRONTEND CODING<span>CHALLENGE</span></h1>
-      </Index>
+      <div>
+        <Header color="#fff"/>
+        <Index>
+          <h1>FRONTEND CODING<span>CHALLENGE</span></h1>
+        </Index>
+      </div>
     )
   }
 }

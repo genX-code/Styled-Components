@@ -6,18 +6,18 @@ export const Container = styled.div`
 `
 
 export const Heading = styled.h1`
-  font-size: 4rem;
+  font-size: 6rem;
   text-shadow: 2px 2px 2px rgba(0,0,0,.2), 2px 2px 2px rgba(0,0,0,.2);
 `
 export const Wrapper = styled.div`
+  margin-top: 3rem;
   display: grid;
-  grid-template-columns: ${props => `repeat(auto-fit, minmax(${Math.floor(1100/+localStorage.getItem("column"))}px, 1fr))`};
-  align-items: center;
+  grid-template-columns: ${props => `repeat(auto-fit, minmax(${Math.floor(960/+localStorage.getItem("column"))}px, 1fr))`};
   grid-gap:3rem;
   padding: 2rem;
   transition: .2s ease-in;
 `
 
 export const TweetContainer = styled.div`
-  
+  margin: 6rem 0;
 `

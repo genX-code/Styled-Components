@@ -1,7 +1,11 @@
 import React from 'react';
 import Tweet from "./Tweet"
-import {Container, TweetContainer, Wrapper} from "./Stylesheets";
 import { connect } from "react-redux";
+
+import PageHeader from "./PageHeader";
+import Footer from "./Footer";
+import {Container, TweetContainer, Wrapper, Heading} from "./Stylesheets";
+import { getMake } from "../state/tweetAction";
 
 
 class MakeSchool extends React.Component {
@@ -13,23 +17,31 @@ class MakeSchool extends React.Component {
   }
   
 componentDidMount() {
-  console.log(this)
-  document.querySelector("ul").classList.remove("show");
+  this.props.dispatch(getMake());
+  document.querySelector("ul").classList.add("show");
 }
 
   render(){
     return (
-      <Container>
+      <div>
+        <PageHeader color="#fff"/>
+        <Container>
         <TweetContainer>
-          <h1>Make School</h1>
+          <Heading>Make School</Heading>
             <Wrapper>
-              {/* {this.props.tweets.map((tweet, i) => <Tweet tweet={tweet} key={i} />)} */}
+              {this.props.makeTweets.map((tweet, i) => <Tweet tweet={tweet} key={i} />)}
             </Wrapper>
         </TweetContainer>
+        <Footer />
       </Container>
+      </div>
+      
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  makeTweets: state.makeTweets,
+})
 
-export default connect()(MakeSchool);
+export default connect(mapStateToProps)(MakeSchool);

@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import FontAwesome from "react-fontawesome";
 import styled from "styled-components";
 
-const Header = styled.div`
+const HeaderNav = styled.div`
   display:grid;
 
   nav {
@@ -53,7 +53,7 @@ const Header = styled.div`
       transition: .125s ease-in;
 
       &:hover {
-        color: orange;
+        color: #05abe0;
         padding-left:.4rem;
       }
     }
@@ -73,25 +73,23 @@ const showSlider = () => {
     document.querySelector("h1").classList.toggle("hide");
   }
 
-export default () => (
+export default (props) => (
 
   
-    <Header>
+    <HeaderNav>
       <nav>
           <button onClick={showSlider}>
-            <FontAwesome style={{color:"#fff"}} name='dove' size='3x'/>
+            <FontAwesome style={{color:props.color}} name='dove' size='3x'/>
           </button>
       
-      <ul>
-        <li><NavLink activeClassName="active" to="/" exact={true}><span><FontAwesome style={{color:"#fff"}} name='home' size='2x'/></span></NavLink></li>
-        <li><NavLink to="/all">All Tweets</NavLink></li>
-        <li><NavLink to="/make">Make School</NavLink></li>
-        <li><NavLink to="/ycomb" >YCombinator</NavLink></li>
-        <li><NavLink to="/news" >NewsYCombinator</NavLink></li>
-      </ul>
-    </nav>
-    <EditLayout />
-    </Header>
+        <ul>
+          <li><NavLink to="/all">All Tweets</NavLink></li>
+          <li><NavLink to="/make">Make School</NavLink></li>
+          <li><NavLink to="/ycomb" >YCombinator</NavLink></li>
+          <li><NavLink to="/news" >NewsYCombinator</NavLink></li>
+        </ul>
+      </nav>
+    </HeaderNav>
     
     
 )

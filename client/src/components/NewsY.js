@@ -1,8 +1,11 @@
 import React from 'react';
 import Tweet from "./Tweet"
-import {Container, TweetContainer, Wrapper} from "./Stylesheets";
 import { connect } from "react-redux";
-import { getNewsTweets } from "../state/tweetAction";
+
+import {Container, TweetContainer, Wrapper, Heading} from "./Stylesheets";
+import PageHeader from "./PageHeader";
+import Footer from "./Footer";
+import { getNews } from "../state/tweetAction";
 
 class NewsY extends React.Component {
   constructor(props){
@@ -10,19 +13,24 @@ class NewsY extends React.Component {
   }
   
 componentDidMount() {
-  document.querySelector("ul").classList.remove("show");
+  this.props.dispatch(getNews());
+  document.querySelector("ul").classList.add("show");
 }
 
   render(){
     return (
-      <Container>
+      <div>
+        <PageHeader color="#fff"/>
+        <Container>
         <TweetContainer>
-          <h1>NewsYCombinator</h1>
+          <Heading>NewsYCombinator</Heading>
             <Wrapper>
               {this.props.newsTweets.map((tweet, i) => <Tweet tweet={tweet} key={i} />)}
             </Wrapper>
         </TweetContainer>
+        <Footer />
       </Container>
+      </div>
     )
   }
 }

@@ -4,7 +4,6 @@ import NProgress from "nprogress";
 import 'nprogress/nprogress.css';
 
 import Welcome from "../components/Welcome";
-import Header from "../components/Header";
 import Dashboard from "../components/Dashboard";
 import MakeSchool from "../components/MakeSchool";
 import YComb from "../components/YComb";
@@ -27,7 +26,6 @@ export default class Router extends React.Component {
     return(
       <BrowserRouter>
       <div>
-        <Header />
         <Switch>
           <Route path="/" exact={true} component={Welcome} />
           <Route path="/all" component={Dashboard} />

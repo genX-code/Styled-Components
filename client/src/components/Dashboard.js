@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import PageHeader from "../components/PageHeader";
 import AllTweets from './AllTweets';
 import MakeSchool from './MakeSchool';
 import YComb from './YComb';
@@ -18,7 +19,7 @@ class Dashboard extends React.Component {
     
     switch (this.props.match.url){
         case '/make' :
-          return component = <MakeSchool />;
+          return component = <MakeSchool tweets={this.props.makeTweets}/>;
 
         case '/ycomb' :
           return component = <YComb />;
@@ -33,9 +34,13 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div>
+        <PageHeader color="#fff"/>
+        <Container>
           {this.getComponent()}
-      </Container>
+        </Container>
+      </div>
+      
     )
   }
 }

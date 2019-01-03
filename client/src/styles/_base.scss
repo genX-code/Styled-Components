@@ -33,13 +33,18 @@ a {
   transform: scale(1.2);
 }
 
-.active {
-  text-decoration: underline;
+.fa-home { 
+  transition: .2s ease-in;
 }
 
-.fa-home:hover {
-  color: orange;
+.fa-home:hover { 
+  transform: scale(1.2);
 }
+
+.active {
+  color: rgba(0,0,0,.8);
+}
+
 
 // progress bar
 

@@ -1,8 +1,11 @@
 import React from 'react';
-import Tweet from "./Tweet"
-import {Container, TweetContainer, Wrapper} from "./Stylesheets";
 import { connect } from "react-redux";
-import { getYTweets } from "../state/tweetAction";
+
+import PageHeader from "./PageHeader";
+import Footer from "./Footer";
+import Tweet from "./Tweet"
+import {Container, TweetContainer, Wrapper, Heading} from "./Stylesheets";
+import { getY } from "../state/tweetAction";
 
 
 class YComb extends React.Component {
@@ -11,19 +14,24 @@ class YComb extends React.Component {
   }
 
 componentDidMount() {
-  document.querySelector("ul").classList.remove("show");
+  this.props.dispatch(getY());
+  document.querySelector("ul").classList.add("show");
 }
 
   render(){
     return (
-      <Container>
+      <div>
+        <PageHeader color="#fff"/>
+        <Container>
         <TweetContainer>
-          <h1>YCombinator</h1>
+          <Heading>YCombinator</Heading>
             <Wrapper>
-              {this.props.tweets.map((tweet, i) => <Tweet tweet={tweet} key={i} />)}
+              {this.props.yTweets.map((tweet, i) => <Tweet tweet={tweet} key={i} />)}
             </Wrapper>
         </TweetContainer>
+        <Footer />
       </Container>
+      </div>
     )
   }
 }
