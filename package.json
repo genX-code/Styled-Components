@@ -7,7 +7,8 @@
     "twitter-proxy": "^2.0.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "devDependencies": {
     "cors": "^2.8.5",
