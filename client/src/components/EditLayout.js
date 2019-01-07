@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-responsive-modal';
 import FontAwesome from "react-fontawesome";
 import styled from "styled-components";
-import ReactTooltip from 'react-tooltip'
+import { withRouter } from 'react-router-dom';
 
 const FormStyle = styled.div`
   position: absolute;
@@ -10,6 +10,7 @@ const FormStyle = styled.div`
   height: 10rem;
   top: -1rem;
   right: -1rem;
+   
 
   button {
     transition: .2s ease-in;
@@ -18,21 +19,21 @@ const FormStyle = styled.div`
       transform: scale(1.2);
     }
   }
-
 `
 const ModalForm = styled.div`
   width: 35rem;
   padding: 2rem;
   text-align: center;
   font-size: 1.2rem;
-  background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 80%);
+  background: ${props => props.theme.background};
 
   h2 {
     font-size: 3rem;
     text-shadow: 2px 2px 5px rgba(0,0,0,.2);
+    color: ${props => props.theme.color};
   }
 
-  input {
+  input[type="number"] {
     display: block;
     width: 50%;
     padding: .5rem 0;
@@ -41,13 +42,29 @@ const ModalForm = styled.div`
   }
 
   label {
+    font-size: 1.4rem;
     margin: .5rem 0;
+    color: ${props => props.theme.color};
   }
 
   .spacing {
     display: grid;
     justify-items: center;
     margin: 2rem;
+  }
+
+  .theme label {
+    margin-top: -.2rem;
+    padding: 1rem .5rem;
+  } 
+
+  .theme h2 {
+    font-size: 1.8rem;
+  }
+
+  input[type="radio"] {
+    margin: 1rem 0;
+    padding-right: 1rem;
   }
 
 button {
@@ -126,7 +143,7 @@ class EditLayout extends React.Component {
     super(props);
     this.state = {
       open: false,
-      theme: {},
+      theme: "",
       column: ""
     }
   }
@@ -139,7 +156,9 @@ class EditLayout extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("column", this.state.column);
+    localStorage.setItem("column", this.state.column || "3");
+    localStorage.setItem("theme", this.state.theme);
+    this.props.history.push(this.props.match.url);
     this.onCloseModal();
   }
  
@@ -152,7 +171,6 @@ class EditLayout extends React.Component {
   };
  
   render() {
-
     const { open } = this.state;
     return (
       <FormStyle>
@@ -169,6 +187,14 @@ class EditLayout extends React.Component {
                 <input type="number" name="column" min="1" max="3" onChange={this.onChange} autoFocus/>
               </div>
 
+              <div className="theme">
+                <h2>Choose a Theme</h2>
+                <label htmlFor="light">Light</label>
+                <input className="theme" type="radio" name="theme" value="light" onChange={this.onChange} />
+                <label htmlFor="dark">Dark</label>
+                <input className="theme" type="radio" name="theme" value="dark" onChange={this.onChange} />
+              </div>
+
               <button>Submit</button>
             </form>
           </ModalForm>
@@ -178,5 +204,4 @@ class EditLayout extends React.Component {
     }
   }
 
-
-export default EditLayout;
+export default withRouter(EditLayout);

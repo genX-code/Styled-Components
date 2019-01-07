@@ -34,3 +34,12 @@ export const newsReducer = (state=[], action) => {
   }
 }
 
+export const themeReducer = (state="", action) => {
+  switch(action.type) {
+    case "SET_THEME": 
+      return action.data
+
+    default:
+      return state
+  }
+}

@@ -10,6 +10,11 @@ const TweetCard = styled.div`
   height: 25rem;
   justify-items: end;
   box-shadow: 5px 5px 20px rgba(0,0,0,.7);
+  transition: .2s ease-in;
+
+  &:hover {
+    transform: scale(1.05);
+  }
   
   img {
     position: absolute;
@@ -24,7 +29,7 @@ const TweetCardDate = styled.div`
   position: absolute;
   top: 17rem;
   left: 5.5rem;
-  color: #05abe0;
+  color: ${props => props.theme.date};
   text-shadow: 2px 2px 2px rgba(0,0,0,.2);
   span {
     display: block;
@@ -43,12 +48,12 @@ const Retweet = styled.div`
   top: 1rem;
   right: 1rem;
   font-size: 1rem;
-  background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
+  background: ${props => props.theme.background};
   padding: .5rem;
   border-radius: 2rem;
 
   p {
-    color: #000;
+    color: ${props => props.theme.color};
   }
 `
 
@@ -63,9 +68,12 @@ const TweetContent = styled.div`
   color: #000;
   line-height: 1.5;
   font-size: 1.4rem;
+  
+
+
 
   a {
-    color: goldenrod;
+    color: ${props => props.theme.date};
     display: block;
   }
   
@@ -80,7 +88,7 @@ const Tweet = (props) => {
         </TweetCardDate>
         <Retweet>
           {props.tweet.retweeted_status !== undefined ? <p> 
-            <FontAwesome style={{color:"#000"}} name='retweet' size='lg'/>
+            <FontAwesome style={{color:"teal"}} name='retweet' size='lg'/>
           {props.tweet.retweeted_status.entities.user_mentions.map(user => ` ${user.name} ` )}</p> : ""}
         </Retweet>
 

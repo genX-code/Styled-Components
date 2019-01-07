@@ -1,4 +1,5 @@
 import axios from "axios";
+import { light } from "../components/Stylesheets";
 let make, y, news;
 
 export const getMakeTweets = () => dispatch => {
@@ -41,4 +42,9 @@ export const getY = () => ({
 export const getNews = () => ({
   type:"GET_NEWS_TWEETS",
   payload: news
+})
+
+export const getTheme = () => ({
+  type: "SET_THEME",
+  data:localStorage.getItem("theme") || "light"
 })

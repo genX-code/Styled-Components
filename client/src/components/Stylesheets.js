@@ -21,3 +21,14 @@ export const Wrapper = styled.div`
 export const TweetContainer = styled.div`
   margin: 6rem 0;
 `
+export const light = {
+  background: "linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 80%)",
+  color: "#000",
+  date: "#05abe0"
+}
+
+export const dark = {
+  background: "linear-gradient(to bottom, #3f4c6b 0%,#3f4c6b 100%)",
+  color: "#fff",
+  date: "#3f4c6b"
+}

@@ -8,7 +8,7 @@ const Header = styled.div`
   display:flex;
   height: 7rem;
   align-items: center;
-  background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 80%);
+  background: ${props => props.theme.background};
   box-shadow: 2px 5px 20px rgba(0,0,0,.2), 2px 15px 20px rgba(0,0,0,.2);
 
 
@@ -63,13 +63,6 @@ const Header = styled.div`
     padding-left: 2rem;
 
   }
-
-  @media screen and (max-width: 540px) {
-    a {
-      font-size: 1rem;
-    }
-  }
-
   
 `
 
