@@ -7,7 +7,7 @@
     "twitter-proxy": "^2.0.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client npm run build --prefix client"
   },
   "devDependencies": {
@@ -15,3 +15,4 @@
     "nodemon": "^1.18.9"
   }
 }
+ 
