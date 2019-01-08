@@ -12,15 +12,6 @@ twitterProxyServer({
   consumerSecret: secret
 });
 
-app.use(cors());
-
-app.get("/", (req, res) => {
-  res.send("Hello World");
-})
-
-app.use("/tweets", route);
-console.log(process.env.NODE_ENV);
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -28,6 +19,9 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html" ))
   })
 }
+
+app.use(cors());
+app.use("/tweets", route);
 
 
 app.listen(port, () => console.log(`Server is listening on ${port}`) )
