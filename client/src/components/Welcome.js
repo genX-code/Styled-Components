@@ -50,6 +50,7 @@ const Index = styled.div`
 class Welcome extends React.Component {
 
   componentDidMount() {
+    localStorage.setItem("column", "3")
     this.props.dispatch(getMakeTweets());
     this.props.dispatch(getYTweets());
     this.props.dispatch(getNewsTweets());

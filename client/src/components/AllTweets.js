@@ -12,7 +12,8 @@ class AllTweets extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      theme: light
+      theme: light,
+      column:""
     }
   }
 
