@@ -2,7 +2,7 @@ import axios from "axios";
 let make, y, news;
 
 export const getMakeTweets = () => dispatch => {
-  axios.get(encodeURI(`https://warm-dusk-72486.herokuapp.com:${process.env.PORT}/tweets`))
+  axios.get(`https://warm-dusk-72486.herokuapp.com:${process.env.PORT}/tweets`)
     .then(response => {
       make = response.data;
       dispatch({type:"GET_MAKE_TWEETS", payload:response.data})
