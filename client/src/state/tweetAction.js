@@ -11,7 +11,7 @@ export const getMakeTweets = () => dispatch => {
 }
 
 export const getYTweets = () => dispatch => {
-  axios.get(`https://warm-dusk-72486.herokuapp.com:${process.env.PORT}/tweets/ycomb`)
+  axios.get(encodeURI(`https://warm-dusk-72486.herokuapp.com:${process.env.PORT}/tweets/ycomb`))
     .then(response => {
       y = response.data;
       dispatch({type:"GET_Y_TWEETS", payload:response.data})
@@ -20,7 +20,7 @@ export const getYTweets = () => dispatch => {
 }
 
 export const getNewsTweets = () => dispatch => {
-  axios.get(`https://warm-dusk-72486.herokuapp.com:${process.env.PORT}/tweets/news`)
+  axios.get(encodeURI(`https://warm-dusk-72486.herokuapp.com:${process.env.PORT}/tweets/news`))
     .then(response => {
       news = response.data;
       dispatch({type:"GET_NEWS_TWEETS", payload:response.data})
